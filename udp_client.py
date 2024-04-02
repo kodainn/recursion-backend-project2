@@ -1,4 +1,5 @@
 import socket
+import os
 
 # UNIXドメインソケットとデータグラム（非接続）ソケットを作成します
 sock = socket.socket(socket.AF_UNIX, socket.SOCK_DGRAM)
@@ -10,6 +11,13 @@ server_address = '/udp_socket_file'
 # このクライアントのアドレスを定義します。
 # サーバはこのアドレスにメッセージを返します
 address = '/udp_client_socket_file'
+
+try:
+    # もし前回の実行でソケットファイルが残っていた場合、そのファイルを削除します。
+    os.unlink(address)
+except FileNotFoundError:
+    # ファイルが存在しない場合は何もしません。
+    pass
 
 # サーバに送信するメッセージを定義します
 message = b'Message to send to the client.'

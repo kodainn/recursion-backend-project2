@@ -1,0 +1,11 @@
+version: '3'
+services:
+  ubuntu-my-custom:
+    image: ubuntu-my-custom:1.1
+    volumes:
+      - type: bind
+        source: .
+        target: /python_practice
+    stdin_open: true
+    tty: true
+    command: bash
