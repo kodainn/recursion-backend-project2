@@ -1,7 +1,7 @@
 version: '3'
 services:
-  ubuntu-my-custom:
-    image: ubuntu-my-custom:1.1
+  python_ubuntu:
+    image: python_ubuntu
     volumes:
       - type: bind
         source: .
